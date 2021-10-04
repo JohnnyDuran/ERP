@@ -1,0 +1,38 @@
+{% extends '_formbase.html' %}
+{% load static %}      
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'lib/select2/select2.min.css' %}">
+{% endblock css %}
+    {% block extras_fields %}
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+    
+            <select name="productos" id="productos" class="form-control">
+                <option value=""></option>
+            </select>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered " id="table_detalle">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      
+    {% endblock extras_fields %}
+    {% block js %}
+    <script src="{% static 'lib/select2/select2.min.js' %}"></script>
+    <script src="{% static 'js/venta.js' %}"></script>
+    {% endblock js %}

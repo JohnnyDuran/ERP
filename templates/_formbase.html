@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{title_form}}
+<form enctype="multipart/form-data" autocomplete="off" method="post">
+    {% csrf_token %}
+    {% for field in  form.visible_fields %}
+    <div class="form-group row">
+        <label for="{{field.name}}" class="col-sm-2 col-form-label">{{field.label}}</label>
+        <div class="col-sm-10">
+          {{field}}
+        </div>
+      </div> 
+    {% endfor %}
+    {% block extras_fields %}
+      
+    {% endblock extras_fields %}
+
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="{{view.success_url}}" class="btn btn-default" > Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}
